@@ -34,8 +34,9 @@
                 statusChangeCallback(response);
             });
         }
-
+        // 2. 套件載入完成後，呼叫 window.fbAsyncInit 函式
         window.fbAsyncInit = function () {
+            // 初始化 Facebook SDK 套件
             FB.init({
                 appId: '536659170173247',
                 cookie: true,  // enable cookies to allow the server to access 
@@ -56,12 +57,14 @@
             //
             // These three cases are handled in the callback function.
 
+            //偵測使用者的登入狀態
             FB.getLoginStatus(function (response) {
+                console.log(response); //自我測試 連線及授權狀態
                 statusChangeCallback(response);
             });
 
         };
-
+        // 1. 載入 Facebook JAVASCRIPT SDK
         // Load the SDK asynchronously
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
