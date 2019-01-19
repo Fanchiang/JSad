@@ -45,9 +45,7 @@
 
         function signIn() {
             auth.signInWithPopup(provider).then(function (result) {
-
             }).catch(function (error) {
-
             });
         }
 
@@ -73,7 +71,6 @@
         }
 
         function read() {
-
             let ref = db.ref("/messages");
             ref.once("value", function (snapshots) {
                 let data = [];
@@ -108,7 +105,7 @@
         }
 
         function del(key) {
-            let ref = db.ref("/mesaage/" + key); //如何抓到特定一筆留言
+            let ref = db.ref("/mesaages/" + key); //如何抓到特定一筆留言
             ref.remove(function (error) {
                 if (error) {
                     alert(error);
@@ -118,22 +115,12 @@
                 }
             });
         }
-
-
-
         //網頁載入完成後，做一些處理
         window.addEventListener("load", function () {
             read();
         });
-
-
-
-
     </script>
-
 </head>
-
-
 
 <body>
     <h3>Message Board</h3>
@@ -145,7 +132,7 @@
         <button onclick="post();">Post</button>
     </div>
     <hr />
-    <div id="list">Message List</div>
+    <div id="list"></div>
 </body>
 
 </html>
