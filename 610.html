@@ -95,7 +95,7 @@
                 } else { //登入狀態
                     if (currentUser.uid === message.id) { //登入者與留言作者是同一個人
                         list.innerHTML = message.name.bold() + " " + message.content +
-                            "<button onclick='del(\"" + message.key + "\");'>Delete(</button>" +
+                            "<button onclick='del(\"" + message.key + "\");'>Delete</button>" +
                             "<hr/>" + list.innerHTML;
                     } else {//不同一個人
                         list.innerHTML = message.name.bold() + " " + message.content + "<hr/>" + list.innerHTML;
@@ -105,7 +105,7 @@
         }
 
         function del(key) {
-            let ref = db.ref("/mesaages/" + key); //如何抓到特定一筆留言
+            let ref = db.ref("/messages/" + key); //如何抓到特定一筆留言
             ref.remove(function (error) {
                 if (error) {
                     alert(error);
