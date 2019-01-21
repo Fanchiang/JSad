@@ -57,7 +57,7 @@
             let name = currentUser.displayName;
             let content = document.querySelector("#content").value;
             //加入資料庫
-            let ref = db.ref("/message");
+            let ref = db.ref("/messages");
             ref.push({
                 id: id, name: name, content: content, time: Date.now()
             }, function (error) {
@@ -68,15 +68,8 @@
                 }
             });
         }
-
-
-
-
     </script>
-
 </head>
-
-
 
 <body>
     <h3>Message Board</h3>
@@ -86,9 +79,9 @@
     <div id="member" style="display: none;">
         <textarea id="content"></textarea>
         <button onclick="post();">Post</button>
-</div>
-        <hr />
-        <div id="list">Message List</div>
+    </div>
+    <hr />
+    <div id="list">Message List</div>
 </body>
 
 </html>
